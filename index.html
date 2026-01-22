@@ -365,27 +365,27 @@
     
     
         fetch(url, {
-            method: "POST",
-            headers: {
-                'Content-Type':'application/json'
-            },
-            body: JSON.stringify({nama, kelas, ttl, ahli})
-        })
-        
-        .then((response)=>response.json())
-        .then((data)=>{
-            loading.style.display="none";
-            if(data.success){
-                sukses.style.display="flex";
-            }else{
-                error.style.display="flex";
-            }
-        })
-        .catch((error)=>{
-            loading.style.display="none";
-            error.style.display="flex";
-        });
-        
+        fetch("https://script.google.com/macros/s/AKfycbwxySfN6ZY181qyCS-OKDmBMSFvFp9UBno49Y1vo44SRmslfce01egK7xkhkqsnhrQ1/exec", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ nama, kelas, ttl, ahli })
+  })
+  .then(res => res.json())
+  .then(data => {
+    loading.style.display = "none";
+    if (data.success === true) {
+      sukses.style.display = "flex";
+    } else {
+      error.style.display = "flex";
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    loading.style.display = "none";
+    error.style.display = "flex";
+  });
     
     
     
