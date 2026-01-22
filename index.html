@@ -332,8 +332,7 @@
     const sukses = document.getElementById("sukses");
     const error = document.getElementById("err");
     const loading = document.getElementById("load");
-    const url = "https://script.google.com/macros/s/AKfycbwxySfN6ZY181qyCS-OKDmBMSFvFp9UBno49Y1vo44SRmslfce01egK7xkhkqsnhrQ1/exec";
-    
+    const url = "https://script.google.com/macros/s/AKfycby4CzdxcTL_PM0zyL-_cnZUfQKI7EMDyxxsA1EE3SLLyo8hwD9MUPPIsmeTP3Is9MIVYQ/exec";
     document.getElementById("awal").addEventListener("click", function(){
         document.getElementById("awal").style.display="none";
         document.getElementById("for").style.display="flex";
@@ -365,29 +364,27 @@
     
     
         
-        fetch("https://script.google.com/macros/s/AKfycbxWBrfBIlQfdmC9I0fnLfh63JipFSiAhNNQUpaPcLS9741kHt_rhMzQ_VO_yQKmfSgl/exec", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ nama, kelas, ttl, ahli })
-  })
-  .then(res => res.json())
-  .then(data => {
-    loading.style.display = "none";
-    if (data.success === true) {
-      sukses.style.display = "flex";
-    } else {
-      error.style.display = "flex";
-    }
-  })
-  .catch(err => {
-    console.error(err);
-    loading.style.display = "none";
+        fetch(url, {
+  method: "POST",
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ nama, kelas, ttl, ahli })
+})
+.then((response) => response.json())
+.then((data) => {
+  loading.style.display = "none";
+  if (data.success) {
+    sukses.style.display = "flex";
+  } else {
     error.style.display = "flex";
-  });
-    
-    
+  }
+})
+.catch((error) => {
+console.log("hha");
+  loading.style.display = "none";
+  error.style.display = "flex";
+});
     
     
     
