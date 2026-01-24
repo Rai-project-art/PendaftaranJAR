@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="in">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulir Pendaftaran</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+    <div id="konten">
+    <div id="awal" style="display:">
+        <h4>Formulir Pendaftaran</h4>
+        <div id="masuk">DAFTAR</div>
+    </div>
+    <div id="for" style="display:none">
+        <h4>ISI DATA</h4>
+        <form id="form">
+            <label>NAMA</label>
+            <input type="text" id="nama" name="nama" placeholder="Masukkan Nama" required><br>
+            <label>KELAS</label>
+            <div id="kurangkelas" style="display:none"><p style="margin: 0; font-size: 15px; color:#ff5540; font-weight: bold;">PILIH KELAS</p></div>
+            <select id="kelas" name="kelas">
+                <option value="">Pilih Kelas</option>
+                <option value="X A">X A</option>
+                <option value="X B">X B</option>
+                <option value="X C">X C</option>
+                <option value="X D">X D</option>
+                <option value="XI A">XI A</option>
+                <option value="XI B">XI B</option>
+                <option value="XI C">XI C</option>
+                <option value="XI D">XI D</option>
+            </select><br>
+            <label>Tempat, Tanggal Lahir</label>
+            <input type="text" id="ttl" name="ttl" placeholder="Tempat, Tanggal Lahir" required><br>
+            <label>Bidang Keahlian</label>
+            <label style="font-size:20px;">Foto, Video, Presenter, Desain digital, Penulis</label>
+            <input type="text" id="ahli" name="ahli" placeholder="Boleh lebih dari satu" required><br>
+           <label style="font-size:20px;">Dengan mengirim, anda bersedia dan menyetujui untuk mengikuti segala kegiatan nantinya</label>
+            <input id="submit" type="submit" value="KIRIM"><br>
+        </form>
+        <p style="font-size: 22px; color:#fff;">Perlu bantuan?<a href ="https://wa.me/6283854424952?text=Halo+kak" target="_blank">Tekan disini</a></p>
+    </div>
+    
+    <div id="load" style="display:none">
+        <span class="loader"></span> 
+        <h4 style="margin-top: 20px; margin-bottom: 10px;">Mengirim....</h4>
+    </div>
+    
+    <div id="err" style="display: none">
+        <span class="material-symbols-outlined" style="height: 100 0px; font-size: 90px; margin-bottom: 0px">error</span>
+        <h4 style="margin-top: 0px; height: 60px">error</h4>
+        <p>Silahkan coba lagi atau hubungi <a href="https://wa.me/6283854424952?text=Halo+kak"target="_blank">bantuan</a></p>
+    </div>
+    
+    <div id="sukses" style="display:none">
+        <span class="material-symbols-outlined" style="font-size: 90px">check_circle</span> 
+    <h4>Berhasil Dikirim</h4>
+    <div id="lihatdata">Lihat data</div>
+    <div id="verifikasi">Konfirmasi ke WA</div>
+    </div>
+    
+    <div id="dataisi" style="display:none">
+        <p class="ket">Nama</p>
+        <div id="datanama" class="ketdata">Nama</div>
+        <p class="ket">Kelas</p>
+        <div id="datakelas" class="ketdata">Kelas</div>
+        <p class="ket">Tempat, Tanggal lahir</p>
+        <div id="datattl" style="font-size:28px;" class="ketdata">TTL</div>
+        <p class="ket">Bidang Keahlian</p>
+        <div id="dataahli" style="font-size: 28px;" class="ketdata">Ahli</div>
+          <p style="font-size: 22px; color:#fff; text-align:center">Perlu bantuan?<a href ="https://wa.me/6283854424952?text=Halo+kak" target="_blank">Tekan disini</a></p>
+          <div id="verifikasi2" style="text-align: center;">Konfirmasi ke WA</div>
+          <div id="kembali">Kembali</div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Ramadhana Innovation project</p>
+    </footer>
+    </div>
+    
+</body>
+<style>
+    label{
+        font-size:28px;
+    }
+    body{
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0),rgba(0,0,0,0.5)),url("photo.png");
+        background-size: contain;
+        background-position:center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        margin: 0;
+        background-color: #000;
+        font-family: sans-serif, verdana, arial, calibri;
+    }
+    #awal{
+        color: #fff;
+        border-style: solid;
+        text-align: center;
+        width: 50%;
+        border-radius: 10px;
+        border-width: 4px;
+        box-shadow: 0px 0px 4px rgba(0,0,0,1);
+        backdrop-filter: blur(5px);
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    #konten{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        
+    }
+    #masuk{
+        
+        margin-bottom: 20px;
+        background-color: #fff;
+        color: #000;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 10px;
+        width: 150px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,1);
+        border-style: groove;
+        border-width: 2pz;
+        font-size: 38px;
+    }
+    h4{
+        font-size: 42px;
+        margin-top: 20px;
+        
+    }
+    #for{
+        color: #fff;
+        border-style: solid;
+        text-align: center;
+        width: 70%;
+        border-radius: 10px;
+        border-width: 4px;
+        box-shadow: 0px 0px 4px rgba(0,0,0,1);
+        backdrop-filter: blur(5px);
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+    #form{
+        display: flex;
+        flex-direction: column;
+        margin-right: 100px;
+        margin-left: 100px;
+    }
+    input{
+        
+        font-size: 28px;
+        border-radius: 10px;
+        border-style: solid;
+        padding: 5px;
+        border-color: #fff;
+        box-shadow: 0px 0px 3px rgba(0,0,0,1);
+        font-family: sans-serif, verdana, arial, calibri;
+    }
+    #kelas{
+       
+        font-size: 28px;
+        border-radius: 10px;
+        border-style: solid;
+        padding: 5px;
+        border-color: #fff;
+        box-shadow: 0px 0px 3px rgba(0,0,0,1);
+        font-family: sans-serif, verdana, arial, calibri;
+    }
+    #submit{
+        font-weight: bold;
+        background-color: #0000;
+        color: #fff;
+        border-style: groove;
+        border-width: 3px;
+        box-shadow: 4px 4px 10px rgba(0,0,0,1);
+    }
+    footer{
+        color: #fff;
+        text-align: center;
+        font-family: sans-serif, verdana, arial, calibri;
+        font-size: 20px;
+        position: absolute;
+        bottom: 0;
+    }
+    a{
+        color: #d5dfff;
+    }
+    label{
+        margin-bottom: 1px;
+    }
+    .loader {
+      width: 60px;
+      height: 60px;
+      border:10px solid #FFF;
+      border-radius: 50%;
+      position: relative;
+      transform:rotate(45deg);
+      box-sizing: border-box;
+    }
+    .loader {
+  width: 60px;
+  height: 60px;
+  border: 5px solid;
+  border-color: #fff transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+    #load{
+        color: #fff;
+        border-style: solid;
+        text-align: center;
+        width: 200px;
+        height: 250px;
+        border-radius: 10px;
+        border-width: 4px;
+        box-shadow: 0px 0px 4px rgba(0,0,0,1);
+        backdrop-filter: blur(5px);
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+      #err{
+          color: #fff;
+        border-style: solid;
+        text-align: center;
+        width: 200px;
+        height: 250px;
+        border-radius: 10px;
+        border-width: 4px;
+        box-shadow: 0px 0px 4px rgba(0,0,0,1);
+        backdrop-filter: blur(5px);
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+      }
+      #sukses{
+          color: #fff;
+        border-style: solid;
+        text-align: center;
+        width: 300px;
+        height: 350px;
+        border-radius: 10px;
+        border-width: 4px;
+        box-shadow: 0px 0px 4px rgba(0,0,0,1);
+        backdrop-filter: blur(5px);
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;  
+      }
+      #lihatdata{
+        font-weight: bold;
+        background-color: #0000;
+        color: #fff;
+        border-style: groove;
+        border-width: 3px;
+        box-shadow: 4px 4px 10px rgba(0,0,0,1); 
+        border-radius: 10px;
+        padding: 7px;
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+      #verifikasi{
+        font-weight: bold;
+        background-color: #0000;
+        color: #fff;
+        border-style: groove;
+        border-width: 3px;
+        box-shadow: 4px 4px 10px rgba(0,0,0,1); 
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 28px;
+      }
+      #verifikasi2{
+        font-weight: bold;
+        background-color: #0000;
+        color: #fff;
+        border-style: groove;
+        border-width: 3px;
+        box-shadow: 4px 4px 10px rgba(0,0,0,1); 
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 28px;
+      }
+      #dataisi{
+        color: #fff;
+        border-style: solid;
+        text-align: center;
+        width: 400px;
+        height: max-content;
+        border-radius: 10px;
+        border-width: 2px;
+        box-shadow: 0px 0px 4px rgba(0,0,0,1);
+        backdrop-filter: blur(5px);
+        text-align: left;
+        word-wrap: break-word;
+      }
+      .ket{
+          margin-left: 10px;
+          font-size: 25px;
+          margin-bottom: 0px;
+      }
+      .ketdata{
+          margin-left: 10px;
+          font-size: 32px;
+          font-weight: bold;
+          margin-top: 3px;
+      }
+      #kembali{
+        font-weight: bold;
+        background-color: #0000;
+        color: #fff;
+        border-style: groove;
+        border-width: 3px;
+        box-shadow: 4px 4px 10px rgba(0,0,0,1); 
+        border-radius: 10px;
+        padding: 7px;
+        font-size: 28px;
+        margin-bottom: 20px;
+        text-align:center;
+        margin-top: 10px;
+        
+      }
+</style>
+<script>
+    const sukses = document.getElementById("sukses");
+    const error = document.getElementById("err");
+    const loading = document.getElementById("load");
+   
+    
+    document.getElementById("awal").addEventListener("click", function(){
+        document.getElementById("awal").style.display="none";
+        document.getElementById("for").style.display="block";
+    });
+    
+    
+    
+    document.getElementById("form").addEventListener('submit', async function(event){
+    event.preventDefault();
+        
+        
+        if(document.getElementById("kelas").value===""){
+           document.getElementById("kurangkelas").style.display="block";
+        }else{
+            document.getElementById("kurangkelas").style.display="none";
+        
+        
+    const nama = document.getElementById("nama").value;
+    const kelas = document.getElementById("kelas").value;
+    const ttl = document.getElementById("ttl").value;
+    const ahli = document.getElementById("ahli").value;
+    
+    
+    
+    document.getElementById("for").style.display="none";
+    loading.style.display="flex";
+    
+    
+
+       
+   
+
+    const formData = new FormData(form);
+
+  try {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbwuTuIOTMTMQO4WxkohPkhS-NSiUjphIDdl-sr576EU0aOQPTj-10F0OQznxJV7cLLcsQ/exec", {
+      method: "POST",
+      body: formData
+    });
+
+    if (!response.ok) {
+      throw new Error("Gagal terhubung ke server");
+    }
+
+    const result = await response.json();
+
+    loading.style.display = "none";
+
+    if (result.status === "success") {
+      sukses.style.display = "flex";
+     
+    } else {
+      
+      error.style.display = "flex";
+    }
+
+  } catch (err) {
+    loading.style.display = "none";
+    
+    error.style.display = "flex";
+    console.error(err);
+  }
+
+
+       
+        
+    
+    
+    
+    
+    
+    document.getElementById("lihatdata").addEventListener("click", function(){
+        document.getElementById("sukses").style.display="none";
+        document.getElementById("dataisi").style.display="block";
+        
+        document.getElementById("datanama").innerHTML=nama;
+        document.getElementById("datakelas").innerHTML=kelas;
+        document.getElementById("datattl").innerHTML=ttl;
+        document.getElementById("dataahli").innerHTML=ahli;
+    });
+    
+    
+    document.getElementById("kembali").addEventListener("click", function(){
+        document.getElementById("dataisi").style.display="none";
+        document.getElementById("sukses").style.display="flex";
+    });
+    
+    
+    document.getElementById("verifikasi").addEventListener("click", function(){
+    console.log("jaja");
+        const web = "https://wa.me/6283854424952?text=";
+        const text ="sudah mengisi formulir"
+        window.open(web+nama+"+"+kelas+"+"+text,'_blank');
+    });
+    
+    document.getElementById("verifikasi2").addEventListener("click", function(){
+    console.log("jaja");
+        const web = "https://wa.me/6283854424952?text=";
+        const text ="sudah mengisi formulir"
+        window.open(web+nama+"+"+kelas+"+"+text,'_blank');
+    });
+    
+    
+    
+    
+    }});
+    
+    
+</script>
+</html>
